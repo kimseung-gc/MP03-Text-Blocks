@@ -1,5 +1,3 @@
-
-
 import java.io.PrintWriter;
 
 import MP03.*;
