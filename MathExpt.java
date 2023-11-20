@@ -1,6 +1,6 @@
-package MP03;
-
 import java.io.PrintWriter;
+
+import MP03.MathUtils;
 
 /**
  * A few simple experiments with our utilities.

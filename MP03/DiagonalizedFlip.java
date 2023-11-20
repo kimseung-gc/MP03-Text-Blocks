@@ -1,12 +1,11 @@
 package MP03;
 
 /**
- * Diagonalized flip class for Textblocks
+ * Diagonalized flip class for Textblocks. A personal implementation.
  * 
  * @author Seunghyeon (Hyeon) Kim
  * @version 1 of Sept. 2023
  */
-
 public class DiagonalizedFlip implements TextBlock{
   // +------------------+---------------------------------------------
   // | Design Decisions |
@@ -31,7 +30,6 @@ public class DiagonalizedFlip implements TextBlock{
    * 
    * @pre valid TextBlock _inp
    */
-
   public DiagonalizedFlip(TextBlock _inp){
     this.inp = (_inp == null) ? new TextLine(null) : _inp;
   } // DiagonalizedFlip(TextBlock)

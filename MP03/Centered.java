@@ -6,7 +6,6 @@ package MP03;
  * @author Seunghyeon (Hyeon) Kim
  * @version 1 of Sept. 2023
  */
-
 public class Centered implements TextBlock {
   // +------------------+---------------------------------------------
   // | Design Decisions |
@@ -61,8 +60,8 @@ public class Centered implements TextBlock {
     } // if
     /* Exception for having this.max smaller than this.centered.width() 
      */
-    if((this.inp.width() > this.max)){
-      return this.inp.row(i);
+    if((this.inp.width() >= this.max)){
+      return this.inp.row(i).substring(0, this.max);
     } // if
     /* Exception for having this.max being invalid
      */

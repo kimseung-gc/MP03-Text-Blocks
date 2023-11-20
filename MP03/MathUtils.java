@@ -1,5 +1,6 @@
 package MP03;
 
+
 /**
  * A collection of simple math utilities.
  * 

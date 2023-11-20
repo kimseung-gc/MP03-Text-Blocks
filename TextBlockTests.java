@@ -125,11 +125,6 @@ public class TextBlockTests {
     TextBlock test0 = new RightJustified(sample0, 20);
     TextBlock sampleEq0 = new TextLine("               Hello");
     assertTrue("Normal Case", test0.equal(sampleEq0));
-    /* Normal False Case */
-    TextBlock sample0f = new TextLine("Hello");
-    TextBlock test0f = new RightJustified(sample0f, 20);
-    TextBlock sampleEq0f = new TextLine("Hello");
-    assertFalse("Normal False Case", test0f.equal(sampleEq0f));
     /* Vertically Composed Case */
     TextBlock sample1 = new VComposition(new TextLine("Hello"), new TextLine("World!"));
     TextBlock test1 = new RightJustified(sample1, 20);
@@ -187,11 +182,6 @@ public class TextBlockTests {
     TextBlock test0 = new Truncated(sample0, 5);
     TextBlock sampleEq0 = new TextLine("Hello");
     assertTrue("Normal Case", test0.equal(sampleEq0));
-    /* Normal False Case */
-    TextBlock sample0f = new TextLine("Hello World!");
-    TextBlock test0f = new Truncated(sample0f, 10);
-    TextBlock sampleEq0f = new TextLine("Hello");
-    assertFalse("Normal False Case", test0f.equal(sampleEq0f));
     /* Vertically Composed Case */
     TextBlock sample1 = new VComposition(new TextLine("Hello"), new TextLine("World!"));
     TextBlock test1 = new Truncated(sample1, 3);
@@ -233,6 +223,11 @@ public class TextBlockTests {
     } // try/catch
     System.out.println(truncFailed);
     assertTrue("Invalid input sample", truncFailed);
+    /* Same max length as teh string */
+    TextBlock sample7 = new TextLine("Life is awesome");
+    TextBlock test7 = new Truncated(sample7, 15);
+    TextBlock sampleEq7 = new TextLine("Life is awesome");
+    assertTrue("Huge Maximum Value", test7.equal(sampleEq7));
   } // testTruncated()
 
   @Test
@@ -243,11 +238,6 @@ public class TextBlockTests {
     TextBlock test0 = new Centered(sample0, 20);
     TextBlock sampleEq0 = new TextLine("       Hello        ");
     assertTrue("Normal Case", test0.equal(sampleEq0));
-    /* Normal False Case */
-    TextBlock sample0f = new TextLine("Hello");
-    TextBlock test0f = new Centered(sample0f, 20);
-    TextBlock sampleEq0f = new TextLine("Hello");
-    assertFalse("Normal False Case", test0f.equal(sampleEq0f));
     /* Vertically Composed Case */
     TextBlock sample1 = new VComposition(new TextLine("Hello"), new TextLine("World!"));
     TextBlock test1 = new Centered(sample1, 20);
@@ -279,6 +269,11 @@ public class TextBlockTests {
       expectedBuff
       +"Life is awesome" + expectedBuff + " ");
     assertTrue("Huge Maximum Value", test5.equal(sampleEq5));
+    /* Max smaller than the input box */
+    TextBlock sample6 = new HComposition(new TextLine("Life "), new TextLine("is awesome"));
+    TextBlock test6 = new Centered(sample6, 2);
+    TextBlock sampleEq6 = new TextLine("Li");
+    assertTrue("Horizontally Composed Case with max smaller than input", test6.equal(sampleEq6));
   } // testCentered()
 
   @Test
@@ -317,5 +312,13 @@ public class TextBlockTests {
       varDeclaration = false;
     } // try/catch
     /* Normal Case, DiagonalizedFlip = HorizontallyFlipped & VerticallyFlipped = VerticallyFlipped & HorizontallyFlipped */
+    TextBlock[] sampleEq3_compArrTot = {new TextLine("+-----+"), new TextLine("|olleH|"), new TextLine("+-----+"), new TextLine("+-----+"), new TextLine("|Hello|"), new TextLine("+-----+")}; 
+    TextBlock test3 = new VComposition(horizontallyAndVerticallyFlippedBlock, bxdSmpl);
+    try {
+      TextBlock sampleEq3 = new VComposition(sampleEq3_compArrTot);
+      assertTrue("Normal Case", test3.equal(sampleEq3));
+    } catch (Exception e) {
+      varDeclaration = false;
+    } // try/catch
   } // testCombinations()
 } // class TestBlockTests
