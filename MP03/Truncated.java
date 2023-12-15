@@ -62,7 +62,7 @@ public class Truncated implements TextBlock{
     } // if/else
     /* Exception for having this.max bigger than this.truncated.width() 
      */
-    if((this.inp.width() < this.max)){
+    if((this.inp.width() <= this.max)){
       return this.inp.row(i);
     } else{
       /* Under normal cases */

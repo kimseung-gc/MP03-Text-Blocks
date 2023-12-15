@@ -277,9 +277,11 @@ public class TextBlockTests {
   } // testCentered()
 
   @Test
-  /* This method exists for testing the Truncated class */
+  /**
+   * This method exists for testing the Truncated class 
+   */
   public void testCombinations(){
-    /* Normal Case, Composition of Boxed Sample and Truncated */
+    // Normal Case, Composition of Boxed Sample and Truncated
     TextBlock sample0 = new TextLine("Hello");
     TextBlock bxdSmpl = new BoxedBlock(sample0);
     TextBlock test0 = new Truncated(bxdSmpl, 5);
@@ -311,7 +313,7 @@ public class TextBlockTests {
     }catch(Exception e){
       varDeclaration = false;
     } // try/catch
-    /* Normal Case, DiagonalizedFlip = HorizontallyFlipped & VerticallyFlipped = VerticallyFlipped & HorizontallyFlipped */
+    // Normal Case, DiagonalizedFlip = HorizontallyFlipped & VerticallyFlipped = VerticallyFlipped & HorizontallyFlipped
     TextBlock[] sampleEq3_compArrTot = {new TextLine("+-----+"), new TextLine("|olleH|"), new TextLine("+-----+"), new TextLine("+-----+"), new TextLine("|Hello|"), new TextLine("+-----+")}; 
     TextBlock test3 = new VComposition(horizontallyAndVerticallyFlippedBlock, bxdSmpl);
     try {
