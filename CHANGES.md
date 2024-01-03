@@ -1,4 +1,4 @@
-# MP03: Text Blocks
+# Text Blocks
 
 ## Change Log
 
